@@ -76,14 +76,14 @@ class TestHero(unittest.TestCase):
 
     def test_take_healing_above_full_health(self):
         potion_ = potion.Potion(50)
-        result = self.h.take_healing(potion_)
+        self.h.take_healing(potion_)
         self.h.take_healing(potion_)
         self.assertEqual(500, self.h.health)
 
     def test_take_healing_when_already_dead(self):
         self.h.take_damage(600)
         potion_ = potion.Potion(50)
-        result = self.h.take_healing(potion_)
+        self.h.take_healing(potion_)
         result = self.h.take_healing(potion_)
         self.assertEqual(0, self.h.health)
         self.assertFalse(result)
