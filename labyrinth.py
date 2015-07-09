@@ -7,6 +7,7 @@ import fight
 import weapon
 import potion
 from random import randint
+from database_manager import DatabaseManager
 
 _enemy_base_health = 100
 _enemy_health_per_level = 50
@@ -20,19 +21,6 @@ _boss_damage_per_level = 20
 _boss_base_berserk_chance = 4
 _boss_berserk_critical = 1.50
 
-# TO_DO here is the database
-_weapons_types = ["dagger", "staff", "bow", "rapier",
-                  "elder rod", "snaken bow", "long sword"]
-
-_weapons = {"dagger": (10, 0.0),
-            "staff": (30, 0.25),
-            "bow": (20, 0.80),
-            "rapier": (25, 0.50),
-            "elder rod": (30, 0.50),
-            "snaken bow": (30, 1.00),
-            "long sword": (35, 0.75)}
-
-
 class Labyrinth:
     # labyrinth's constructor method
     def __init__(self, level, hero, max_level):
@@ -41,6 +29,8 @@ class Labyrinth:
         self.level = int(level)
         self.max_level = int(max_level)
         self.position = None
+        self._weapons_types = DatabaseManager().get_weapons_type()
+        self._weapons = DatabaseManager().get_weapons()
 
     # this spawns our hero at the top left corner of the map
     def spawn(self):
@@ -153,12 +143,12 @@ class Labyrinth:
 
     def get_weapon(self):
         if self.level == 0:
-            chance = randint(1, len(_weapons_types))
+            chance = randint(1, len(self._weapons_types))
         else:
             chance = randint(1, (self.level * 3 - 3) or 1)
 
-        type_ = _weapons_types[chance - 1]
-        weapon_ = weapon.Weapon(type_, _weapons[type_][0], _weapons[type_][1],1)
+        type_ = self._weapons_types[chance - 1]
+        weapon_ = weapon.Weapon(type_, self._weapons[type_][0], self._weapons[type_][1],1)
         return weapon_
 
     # returns a potion healing 50% of our hero's missing health

@@ -3,20 +3,15 @@
 import hero
 import labyrinth
 import copy
-
-_heroes = [hero.Hero("sharik", 400, "pythonslayer", 40),
-           hero.Hero("arya", 380, "shadow princess", 40),
-           hero.Hero("silmarillion iv", 420, "lost king of pyland", 35)]
-
-_heroes_by_name = {"sharik": _heroes[0],
-                   "arya": _heroes[1],
-                   "silmarillion": _heroes[2]}
+from database_manager import DatabaseManager
 
 
 class Gameplay:
     def __init__(self, difficulty):
         self.difficulty = int(difficulty)
         self.labyrinth = None
+        self._heroes_by_name = DatabaseManager().get_heroes_by_name()
+        self._heroes = DatabaseManager().get_heroes()
 
     def add_hero(self, hero_name):
         hero_ = self.pick_a_hero(hero_name)
@@ -28,23 +23,20 @@ class Gameplay:
         self.labyrinth.spawn()
 
     # returns a hero object depending on 'hero_name'
-    @staticmethod
-    def pick_a_hero(hero_name):
-        return copy.deepcopy(_heroes_by_name[hero_name])
+    def pick_a_hero(self, hero_name):
+        return copy.deepcopy(self._heroes_by_name[hero_name])
 
-    @staticmethod
-    def list_heroes():
+    def list_heroes(self):
         heroes = ["\nheroes:"]
-        for _ in _heroes_by_name:
+        for _ in self._heroes_by_name:
             heroes.append("-" * 40)
-            heroes.append(str(_heroes_by_name[_]))
+            heroes.append(str(self._heroes_by_name[_]))
             heroes.append("-" * 40)
         return '\n'.join(heroes)
 
     # return true if a hero with name 'hero_name' exists
-    @staticmethod
-    def hero_exists(hero_name):
-        return hero_name in _heroes_by_name
+    def hero_exists(self, hero_name):
+        return hero_name in self._heroes_by_name
 
     def vision(self):
         return self.labyrinth.show_map()

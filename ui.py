@@ -6,13 +6,14 @@ def welcome_screen():
 
 
 def pick_difficulty():
-    picked_difficulty = int(input("choose a difficulty(1-3): "))
+    picked_difficulty = input("choose a difficulty(1-3): ")
 
-    if picked_difficulty not in range(1, 4):
+    if picked_difficulty not in range(1, 4) or type(
+            picked_difficulty) is not int:
         picked_difficulty = 0
         print("You chose invalid difficulty! Demo mode started.")
 
-    return picked_difficulty
+    return int(picked_difficulty)
 
 
 def pick_a_hero(game):
