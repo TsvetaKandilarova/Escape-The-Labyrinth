@@ -16,6 +16,9 @@ class TestPotion(unittest.TestCase):
     def test_potion_to_string(self):
         self.assertEqual("healing potion: 100 hp", str(self.p))
 
+    def test_get_healing_points(self):
+        self.assertEqual(p.get_healing_points(), 100)
+
 
 if __name__ == '__main__':
     unittest.main()

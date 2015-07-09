@@ -4,3 +4,6 @@ class Potion:
 
     def __str__(self):
         return "healing potion: %d hp" % self.healing_points
+
+    def get_healing_points(self):
+        return self.healing_points

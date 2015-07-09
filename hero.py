@@ -1,6 +1,5 @@
 import entity
 
-# just in case
 _base_attack_damage = 10
 
 
@@ -17,7 +16,7 @@ class Hero(entity.Entity):
         return "%s:\n%s" % (self.known_as(), super().__str__())
 
     def known_as(self):
-        return "%s the %s"%(self.name, self.nickname)
+        return "%s the %s" % (self.name, self.nickname)
 
     # returns True if hero is equipped with a weapon
     def has_weapon(self):
