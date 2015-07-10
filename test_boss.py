@@ -5,6 +5,7 @@ import boss
 class TestBoss(unittest.TestCase):
     def setUp(self):
         self.b = boss.Boss(1200, 150, (2, 1.5))
+        self.b2 = boss.Boss(1000, 150, (2, 1.5))
 
     def test_boss_init(self):
         self.assertEqual(1200, self.b.health)
@@ -16,6 +17,11 @@ class TestBoss(unittest.TestCase):
         self.assertEqual(
             "big enemy:\n1200/1200 health\n150 damage\n2/150% berserk",
             str(self.b))
+
+    def test_boss_to_string2(self):
+        self.assertEqual(
+            "big enemy:\n1000/1200 health\n150 damage\n2/150% berserk",
+            self.b.__str__())
 
     def test_take_damage(self):
         self.b.take_damage(100)

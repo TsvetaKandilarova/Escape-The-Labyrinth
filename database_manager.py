@@ -3,7 +3,6 @@ import create_database
 from hero import Hero
 
 
-
 class DatabaseManager:
     def __init__(self, db_name="labyrinth.db"):
         self.name = db_name
@@ -13,35 +12,9 @@ class DatabaseManager:
     def create_database():
         create_database.create()
 
-    def create_tables(self):
-        c = self.conn.cursor()
-        c.execute('''CREATE TABLE IF NOT EXISTS weapons(
-                    type TEXT, damage DOUBLE,
-                    critical_chance DOUBLE, tier INTEGER) ''')
-        c.execute('''CREATE TABLE IF NOT EXISTS heroes(
-                    name TEXT, health INTEGER,
-                    nickname TEXT, damage INTEGER)''')
-
-    def insert_weapon(self, weapon):
-        c = self.conn.cursor()
-        c.execute('''INSERT INTO weapons(type,damage,critical_chance, tier)
-            VALUES(?,?,?,?)''',
-                  (weapon.type, weapon.damage, weapon.critical_strike_percent,
-                   weapon.tier))
-        self.conn.commit()
-
-    def insert_hero(self, hero):
-        c = self.conn.cursor()
-        c.execute('''INSERT INTO heroes(name, health, nickname, damage)
-            VALUES(?,?,?,?)''',
-                  (hero.name, hero.health.hero.nickname, hero.damage))
-        self.conn.commit()
-
     def get_weapons_by_tier(self):
         c = self.conn.cursor()
-
-        weapons = c.execute(
-            '''SELECT * FROM weapons''').fetchall()
+        weapons = c.execute('''SELECT * FROM weapons''').fetchall()
         return weapons
 
     def get_heroes(self):

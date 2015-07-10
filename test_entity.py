@@ -5,10 +5,16 @@ import entity
 class TestEntity(unittest.TestCase):
     def setUp(self):
         self.e = entity.Entity(500)
+        self.e1 = entity.Entity(-500, 100)
 
     def test_entity_init(self):
         self.assertEqual(500, self.e.health)
         self.assertEqual(500, self.e.max_health)
+        self.assertEqual(entity._base_attack_damage, self.e.damage)
+
+    def test_entity_init(self):
+        self.assertEqual(100, self.e.health)
+        self.assertEqual(100, self.e.max_health)
         self.assertEqual(entity._base_attack_damage, self.e.damage)
 
     def test_entity_to_string(self):

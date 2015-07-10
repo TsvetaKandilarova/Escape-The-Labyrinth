@@ -36,7 +36,7 @@ def execute_command(game):
     command = command.split()
     if len(command) == 0:
         return
-    if command[0] == 'instructions':
+    if command[0] == 'instructions' or command[0] == 'help':
         print(game.instructions())
     elif command[0] == 'status':
         print(game.status())
@@ -69,7 +69,6 @@ def won():
 def next_level():
     print("nice, you got through this level")
     print("now it's time for the next one!")
-    print("here be pythons..")
     print("-" * 40)
 
 

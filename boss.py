@@ -13,10 +13,6 @@ class Boss(enemy.Enemy):
                % (super().__str__(), self.berserk_tuple[0],
                   self.berserk_tuple[1] * 100)
 
-    # true damage that gets multiplied if berserk.
-    # the first member of 'berserk_tuple' is how often will crit
-    # and the second member is the berserk_factor, i.e.
-    # by what number is the output damage multiplied
     def attack(self):
         damage = super().attack()
         self.attacks_till_berserk -= 1

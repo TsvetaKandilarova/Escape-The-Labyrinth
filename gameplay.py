@@ -18,8 +18,8 @@ class Gameplay:
         starting_level = self.difficulty
         if self.difficulty == 0:
             starting_level = 0
-        self.labyrinth = labyrinth.Labyrinth(starting_level, hero_,
-                                             self.difficulty)
+        self.labyrinth = labyrinth.Labyrinth(starting_level, hero_,4)
+                                             # self.difficulty)
         self.labyrinth.spawn()
 
     # returns a hero object depending on 'hero_name'
@@ -64,7 +64,7 @@ class Gameplay:
     def instructions():
         commands = "available commands:\n" \
                    + "move <direction=up/down/right/left>\n" + \
-                   " status\ninventory\nexit"
+                   "status\ninventory\nsave\nload\nexit"
         map_key = "\n\nmap key:\n" \
                   + "B - boss\nE - enemy\nH - hero\nI - item\nG - gate"
         more_help = "\n\nreach the gate to go to the next level,\n" \
