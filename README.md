@@ -39,7 +39,7 @@ The available commands while in the game are:
 * instructions - prints some help
 * status - prints current hero's stats
 * inventory - prints the weapon you own if you have some
-* move <direction> - moves the champion in these direction
+* move < direction > - moves the champion in these direction
     if it's not outside the map or obstacle.
 * exit
 
