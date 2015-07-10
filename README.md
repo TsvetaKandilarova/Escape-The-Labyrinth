@@ -44,10 +44,10 @@ The available commands while in the game are:
 * exit
 
 Map:
-* # - a field you can't step on
-* . - a free/path field
-* I - an item field
-* E - a enemy field
-* B - an boss field
+* # - field you can't step on (wall)
+* . - free/path field
+* I - item field
+* E - enemy field
+* B - boss field
 
 If you step on E or B field, the simulation of the fight starts!
