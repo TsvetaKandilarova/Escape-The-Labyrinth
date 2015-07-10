@@ -47,7 +47,7 @@ Map:
 * # - a field you can't step on
 * . - a free/path field
 * I - an item field
-* E - a python field
-* B - an anaconda field
+* E - a enemy field
+* B - an boss field
 
 If you step on E or B field, the simulation of the fight starts!
