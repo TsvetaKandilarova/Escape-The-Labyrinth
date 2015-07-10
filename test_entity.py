@@ -1,4 +1,5 @@
 import unittest
+
 import entity
 
 
@@ -13,8 +14,8 @@ class TestEntity(unittest.TestCase):
         self.assertEqual(entity._base_attack_damage, self.e.damage)
 
     def test_entity_init(self):
-        self.assertEqual(100, self.e.health)
-        self.assertEqual(100, self.e.max_health)
+        self.assertEqual(100, self.e1.health)
+        self.assertEqual(100, self.e1.max_health)
         self.assertEqual(entity._base_attack_damage, self.e.damage)
 
     def test_entity_to_string(self):

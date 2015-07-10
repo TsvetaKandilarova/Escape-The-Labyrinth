@@ -1,5 +1,3 @@
-# Console user interface
-
 def welcome_screen():
     print("Welcome to Escape the labyrinth")
     print("-" * 40)
@@ -8,11 +6,11 @@ def welcome_screen():
 def pick_difficulty():
     picked_difficulty = input("choose a difficulty(1-3): ")
 
-    if picked_difficulty not in range(1, 4) or type(
-            picked_difficulty) is not int:
+    if (picked_difficulty < '1' and pick_difficulty > '9') and int(
+            pick_difficulty) not in range(1, 4):
         picked_difficulty = 0
         print("You chose invalid difficulty! Demo mode started.")
-
+    print(int(picked_difficulty))
     return int(picked_difficulty)
 
 

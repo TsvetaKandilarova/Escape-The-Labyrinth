@@ -10,6 +10,7 @@ def create_heroes_table(cursor):
 
     cursor.execute(create_query)
 
+
 def create_weapons_table(cursor):
     create_query = '''create table if not exists
         weapons(type text,

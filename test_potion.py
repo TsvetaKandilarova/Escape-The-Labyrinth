@@ -1,4 +1,5 @@
 import unittest
+
 import potion
 
 
@@ -17,7 +18,7 @@ class TestPotion(unittest.TestCase):
         self.assertEqual("healing potion: 100 hp", str(self.p))
 
     def test_get_healing_points(self):
-        self.assertEqual(p.get_healing_points(), 100)
+        self.assertEqual(self.p.get_healing_points(), 100)
 
 
 if __name__ == '__main__':

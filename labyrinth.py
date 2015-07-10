@@ -1,4 +1,6 @@
 # the labyrinth module
+from random import randint
+
 import map_
 import ui
 import enemy
@@ -6,7 +8,6 @@ import boss
 import fight
 import weapon
 import potion
-from random import randint
 from database_manager import DatabaseManager
 
 _enemy_base_health = 100
@@ -20,6 +21,7 @@ _boss_base_damage = 10
 _boss_damage_per_level = 20
 _boss_base_berserk_chance = 4
 _boss_berserk_critical = 1.50
+
 
 class Labyrinth:
     # labyrinth's constructor method
@@ -148,7 +150,8 @@ class Labyrinth:
             chance = randint(1, (self.level * 3 - 3) or 1)
 
         type_ = self._weapons_types[chance - 1]
-        weapon_ = weapon.Weapon(type_, self._weapons[type_][0], self._weapons[type_][1],1)
+        weapon_ = weapon.Weapon(type_, self._weapons[type_][0],
+                                self._weapons[type_][1], 1)
         return weapon_
 
     # returns a potion healing 50% of our hero's missing health

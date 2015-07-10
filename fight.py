@@ -1,8 +1,10 @@
 # our fight module
 from random import randint
+
 from hero import Hero
 from boss import Boss
 import ui
+
 
 
 # the bonuses we get for slaining bosses!

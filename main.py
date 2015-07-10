@@ -1,6 +1,7 @@
+import os
+
 import gameplay
 import ui
-import os
 from create_database import create
 
 
@@ -37,7 +38,6 @@ def main():
                     print("you cannot go there..")
         elif command[0] == 'exit':
             exit(0)
-
 
 
 if __name__ == '__main__':

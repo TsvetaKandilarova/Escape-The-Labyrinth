@@ -1,8 +1,8 @@
 # gameplay module
 
-import hero
-import labyrinth
 import copy
+
+import labyrinth
 from database_manager import DatabaseManager
 
 
@@ -18,8 +18,8 @@ class Gameplay:
         starting_level = self.difficulty
         if self.difficulty == 0:
             starting_level = 0
-        self.labyrinth = labyrinth.Labyrinth(starting_level, hero_,4)
-                                             # self.difficulty)
+        self.labyrinth = labyrinth.Labyrinth(starting_level, hero_, 4)
+        # self.difficulty)
         self.labyrinth.spawn()
 
     # returns a hero object depending on 'hero_name'
